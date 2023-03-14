@@ -62,6 +62,70 @@ io.on("connection", socket => {
             socket.emit("player-2-connected");
             socket.join(roomId);
         }
+    });
+    socket.on("make-move", ({playerId, myChoice, roomId}) =>{
+        makeMove(roomId, playerId, myChoice);
+
+        if(choices[roomId][0] !== "" && choices[roomId][1] !== ""){
+            let playerOneChoice = choices[roomId][0];
+            let playerTwoChoice = choices[roomId][1];
+
+            if (playerOneChoice === playerTwoChoice){
+                let message = "Both of you chose: " + playerOneChoice + ". It's a draw"
+                io.to(roomId).emit("draw", message);
+
+            }
+            else if(moves[playerOneChoice] === playerTwoChoice){
+                let enemyChoice = "";
+                if (playerId === 1){
+                    enemyChoice = playerTwoChoice;
+                }
+                else{
+                    enemyChoice = playerOneChoice;
+                }
+                choice[rooms] = ["", ""];
+                io.to(roomId).emit("player-1-wins", {myChoice, enemyChoice});
+            }
+            else{
+                let enemyChoice = "";
+                if (playerId === 1){
+                    enemyChoice = playerTwoChoice;
+                }
+                else{
+                    enemyChoice = playerOneChoice;
+                }
+                choice[rooms] = ["", ""];
+                io.to(roomId).emit("player-2-wins", {myChoice, enemyChoice});
+            }
+        }
+        socket.on("disconnect", () => {
+            if(connectedUsers[socket.client.id]){
+                let player;
+                let roomId;
+
+                for(let id in rooms){
+                    if(rooms[id][0] === socket.client.id || rooms[id][1] === socket.client.id){
+                        if(rooms[id][0] === socket.client.id){
+                            player = 1;
+                        }
+                        else {
+                            player = 2;
+                        }
+
+                        roomId = id;
+                        break;
+                    }
+                }
+                exitRoom(roomId, player);
+
+                if(player === 1){
+                    io.to(roomId).emit("player-1-disconnected");
+                }
+                else{
+                    io.to(roomId).emit("player-2-disconnected");
+                }
+            }
+        })
     })
 })
 
