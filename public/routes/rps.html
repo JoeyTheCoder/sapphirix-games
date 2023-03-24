@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <title>Sapphirix Games</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="../css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="../css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<span class="logo"><img src="/images/logo.svg" alt="" /></span>
+			<h1>Sapphirix Games</h1>
+		</header>
+
+		<!-- Nav -->
+		<nav id="nav">
+			<ul>
+				<li><a href="#intro" class="active">Game Collection</a></li>
+				<li><a href="#first">About</a></li>
+				<li><a href="#second">Support the Developer</a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+
+
+			
+			<section id="first" class="main special">
+				<div class="game">
+                    <div class="start-screen">
+                        <h1>Rock Paper Scissors</h1>
+                
+                        <div class="gameplay-choices" id="gameplay-choices">
+                            <button id="open-create-room-box">Create Room</button>
+                            <button id="open-join-room-box">Join Room</button>
+                        </div>
+                
+                        <div class="create-room-box" id="create-room-box">
+                            <input type="text" id="room-id"><button id="create-room-btn">Create</button>
+                
+                            <button id="cancel-create-action" class="cancel-action">Cancel</button>
+                        </div>
+                
+                        <div class="join-room-box" id="join-room-box">
+                            <div class="join-with-id">
+                                <input type="text" id="join-room-input"><button id="join-room-btn">Join</button>
+                
+                                <button id="cancel-join-action" class="cancel-action">Cancel</button>
+                            </div>
+                
+                            <button class="join-random" id="join-random">Join Random</button>
+                        </div>
+                
+                        <div class="error-message" id="error-message">
+                        </div>
+                    </div>
+                
+                    <div class="gameplay-screen">
+                        <div class="wait-message" id="wait-message">
+                            <p>Waiting for another player to join...</p>
+                        </div>
+                
+                        <div class="connected-players">
+                            <div class="player">
+                                <span class="dot" id="player-1"></span> <span id="player-1-tag"></span>
+                            </div>
+                
+                            <div class="player">
+                                <span class="dot" id="player-2"></span> <span id="player-2-tag"></span>
+                            </div>
+                        </div>
+                
+                        <div class="choices">
+                            <div class="choice" id="rock">
+                                <i class="fas fa-hand-rock"></i>
+                            </div>
+                
+                            <div class="choice" id="paper">
+                                <i class="fas fa-hand-paper"></i>
+                            </div>
+                
+                            <div class="choice" id="scissor">
+                                <i class="fas fa-hand-scissors"></i>
+                            </div>
+                        </div>
+                
+                        <div class="score">
+                            <span>You: <span id="my-score">0</span></span>
+                            <span>Enemy: <span id="enemy-score">0</span></span>
+                        </div>
+                
+                        <div class="message-after-choice-selection" id="win-message">
+                        </div>
+                    </div>
+                </div>
+			</section>
+
+			</div>
+       
+		<!-- Footer -->
+		<footer id="footer">
+			<section>
+				<h2>Aliquam sed mauris</h2>
+				<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam
+					dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat
+					egestas velit, vitae tincidunt odio.</p>
+				<ul class="actions">
+					<li><a href="generic.html" class="button">Learn More</a></li>
+				</ul>
+			</section>
+			<section>
+				<h2>Etiam feugiat</h2>
+				<dl class="alt">
+					<dt>Address</dt>
+					<dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
+					<dt>Phone</dt>
+					<dd>(000) 000-0000 x 0000</dd>
+					<dt>Email</dt>
+					<dd><a href="#">information@untitled.tld</a></dd>
+				</dl>
+				<ul class="icons">
+					<li><a href="#" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands fa-github alt"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon brands fa-dribbble alt"><span class="label">Dribbble</span></a></li>
+				</ul>
+			</section>
+			<p class="copyright">&copy; Design: <a>Joel Sahli</a>.</p>
+		</footer>
+    </div>
+
+	<!-- Scripts -->
+	<script src="/socket.io/socket.io.js"></script>
+    <script src="../js/index.js"></script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/jquery.scrollex.min.js"></script>
+	<script src="../js/jquery.scrolly.min.js"></script>
+	<script src="../js/browser.min.js"></script>
+	<script src="../js/breakpoints.min.js"></script>
+	<script src="../js/util.js"></script>
+	<script src="../js/main.js"></script>
+
+</body>
+
+</html>

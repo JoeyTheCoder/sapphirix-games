@@ -3,11 +3,11 @@ const choices = {};
 const moves = {
     "rock": "scissor",
     "paper": "rock",
-    "scissor": "paper",
+    "scissor": "paper"
 };
 
 const initializeChoices = (roomId) => {
-    choices[roomId] = ["", ""];
+    choices[roomId] = ["", ""]
 }
 
 const userConnected = (userId) => {
@@ -15,9 +15,9 @@ const userConnected = (userId) => {
 }
 
 const makeMove = (roomId, player, choice) => {
-    if(choices[roomId]) {
+    if(choices[roomId]){
         choices[roomId][player - 1] = choice;
     }
 }
 
-module.exports = {connectedUsers, initializeChoices, userConnected, makeMove, moves, choices}
+module.exports = {connectedUsers, initializeChoices, userConnected, makeMove, moves, choices};
